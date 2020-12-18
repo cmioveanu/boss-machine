@@ -1,6 +1,6 @@
 const express = require('express');
 const minionsRouter = express.Router();
-
+module.exports = minionsRouter;
 
 const db = require('../db');
 
@@ -46,10 +46,6 @@ minionsRouter.put('/:minionId', (req, res) => {
     }
 });
 
-
-
-
-
 minionsRouter.delete('/:minionId', (req, res) => {
     const id = req.params.minionId;
     const deletedMinion = db.deleteFromDatabasebyId('minions', id);
@@ -61,8 +57,3 @@ minionsRouter.delete('/:minionId', (req, res) => {
     }
 });
 
-//
-
-
-
-module.exports = minionsRouter;
