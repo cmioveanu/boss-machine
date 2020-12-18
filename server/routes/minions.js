@@ -5,10 +5,6 @@ module.exports = minionsRouter;
 const db = require('../db');
 
 
-
-
-
-
 minionsRouter.get('/', (req, res) => {
     const minions = db.getAllFromDatabase('minions');
     res.send(minions);
