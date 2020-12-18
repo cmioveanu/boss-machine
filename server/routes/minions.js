@@ -28,11 +28,7 @@ minionsRouter.get('/:minionId', (req, res) => {
         res.status(404).send("Invalid id.");
     } else {
         const minion = db.getFromDatabaseById('minions', id);
-        if (minion == null) {
-            res.status(404).send("Minion not found")
-        } else {
-            res.send(minion);
-        }
+        minion == null ? res.status(404).send("Minion not found") : res.send(minion);
     }
 });
 
@@ -42,7 +38,7 @@ minionsRouter.put('/:minionId', (req, res) => {
         res.status(404).send("Invalid id.");
     } else {
         const updatedMinion = db.updateInstanceInDatabase('minions', req.body);
-        updatedMinion === null ? res.status(404).send("Invalid id - minion not found.") : res.send(updatedMinion);
+        updatedMinion == null ? res.status(404).send("Invalid id - minion not found.") : res.send(updatedMinion);
     }
 });
 
